@@ -1,5 +1,5 @@
 document.getElementById("btn").addEventListener("click", () => {
-  let pokemonName = document.getElementById("input-name").value;
+  let pokemonName = document.getElementById("input-name").value.toLowerCase();
   fetchData(pokemonName);
   async function fetchData(pokemonName) {
     try {
@@ -15,6 +15,7 @@ document.getElementById("btn").addEventListener("click", () => {
       document
         .getElementById("p-img")
         .setAttribute("src", data.sprites.front_default);
+      document.getElementById("p-img").style.display = "block";
       document.getElementById("fig-cap").innerHTML = data.name;
     } catch (error) {
       console.error(error);
